@@ -17,14 +17,26 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
         <style>
             body{
                 margin-top: 200px;
+                background: ;
             }
             #messageArea{
                display: none;
             }
+            form{
+                overflow: scroll;
+            }
+            
+            .grad {
+  background: red; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, red , yellow); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, red, yellow); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, red, yellow); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, red , yellow); /* Standard syntax */
+}
         </style>
     </head>
     <body>
-        <div class="container">
+        <div class="container grad">
             <div id="userFormArea" class="row">
                 <div class="col-md-12">
                     <form id="userForm">
@@ -37,12 +49,11 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                         </div>
                     </form>
                 
-                
                 </div>
             </div>
             
             
-            <div id="messageArea" class="row">
+            <div id="messageArea " class="row grad">
                 <div class = "col-md-4">
                     <div class="well">
                         <h3>Online Users</h3>
@@ -54,7 +65,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                     <form id="messageForm">
                         <div class="form-group">
                             <label>Enter a message</label>
-                            <textarea class="form-control" id="message"></textarea>
+                            <textarea class="form-control" id="message" placeholder="please enter your message here"></textarea>
                             <br />
                             <input type="submit" class="btn btn-primary" value="send message"/>
                             
