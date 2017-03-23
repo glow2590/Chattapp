@@ -16,29 +16,58 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
 <!--End of Zendesk Chat Script-->
         <style>
             body{
-                margin-top: 200px;
+                margin-top: 50px;
                 background: ;
             }
             #messageArea{
                 
                display: none;
             }
+            h1{
             
-            .row {
-                overflow: scroll;
+                color: greenyellow;
+                border:solid 1px ;
+                border-color: aquamarine;
+                text-align: center;
+                margin: 100px;
+                border-radius: 5px;
+            }
+            h1:hover{
+            
+                color: greenyellow;
+                border:solid 1px ;
+                border-color: aquamarine;
+                background-color: gold;
+                text-align: center;
+                margin: 100px;
+                
+            
+            }
+            .chat{
+                overflow:hidden;
+            }
+            label{
+                color: greenyellow
+            }
+            .greenyellow{
+                background-color:greenyellow;
+                border-color: green
             }
         </style>
     </head>
     <body>
+        <h1>
+            Welcome to Dream Chat Space
+        </h1>
         <div class="container ">
             <div id="userFormArea" class="row">
                 <div class="col-md-12">
                     <form id="userForm">
                         <div class="form-group">
-                            <label>Enter Username</label>
-                            <input class="form-control" id="userName"/>
+                            <label>Enter Username:</label>
+                            <input class="form-control greenyellow" id="userName" placeholder="please enter your username"/>
                             <br />
-                            <input type="submit" class="btn btn-primary" value="Login"/>
+                            <input type="submit" class="btn btn-primary greenyellow" value="Login"/>
                             
                         </div>
                     </form>
@@ -46,10 +75,10 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                 </div>
             </div>
             
-            
-            <div id="messageArea " class="row ">
+            <div class="chatter">
+            <div id="messageArea" class="row ">
                 <div class = "col-md-4">
-                    <div class="well">0
+                    <div class="well">
                         <h3>Online Users</h3>
                         <ul class="list-group" id="users"></ul>
                     </div>
@@ -59,15 +88,16 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                     <form id="messageForm">
                         <div class="form-group">
                             <label>Enter a message</label>
-                            <textarea class="form-control" id="message" placeholder="please enter your message here"></textarea>
+                            <textarea class="form-control greenyellow" id="message" placeholder="please enter your message here"></textarea>
                             <br />
-                            <input type="submit" class="btn btn-primary" value="send message"/>
+                            <input type="submit" class="btn btn-primary greenyellow" value="send message"/>
                             
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+        </div>    
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
         <script>
             $(function(){
