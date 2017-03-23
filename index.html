@@ -21,9 +21,10 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
             }
             #messageArea{
                display: none;
+                overflow: scroll;
             }
             form{
-                overflow: scroll;
+                
             }
             
             .grad {
@@ -36,7 +37,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
         </style>
     </head>
     <body>
-        <div class="container grad">
+        <div class="container">
             <div id="userFormArea" class="row">
                 <div class="col-md-12">
                     <form id="userForm">
@@ -55,7 +56,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
             
             <div id="messageArea " class="row grad">
                 <div class = "col-md-4">
-                    <div class="well">
+                    <div class="well">0
                         <h3>Online Users</h3>
                         <ul class="list-group" id="users"></ul>
                     </div>
