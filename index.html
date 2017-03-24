@@ -100,6 +100,13 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
         </div>    
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
         <script>
+            $(document).ready(function() {
+    $("#field").keyup(function(e) {
+        if(e.keyCode == 13) {
+            sendMessage();
+        }
+    });
+});     
             $(function(){
                 var socket = io.connect();  
                 var $messageForm = $('#messageForm');
@@ -143,6 +150,26 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                 
             });
             
+            function reconnect() {
+    console.log('Connection lost, trying to reconnect...');
+    $.ajax({
+        url: 
+        success: function() {
+            //Server is back online
+            socket = new WebSocket(myUrl);
+            socket.onerror = onErrorHandler;
+            socket.onmessage = onMessageHandler;
+            socket.onopen = onOpenHandler;
+            socket.onclose = onCloseHandler;
+        },
+        error: function() {
+            //Server is still down
+            setTimeout(function() {
+                reconnect();
+            }, 1000);
+        }
+    });
+}
         </script>
     </body>
 </html>
