@@ -33,7 +33,8 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                 text-align: center;
                 margin: 100px;
                 border-radius: 5px;
-                font-style: italic oblique;
+                font-style: italic;
+                font-style: oblique;
             }
             h1:hover{
             
@@ -51,6 +52,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                 height: 250px;
                 
                 overflow: scroll;
+                display: flex;
                 
             }
             /*chat background and color*/
@@ -63,6 +65,12 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
             .greenyellow{
                 background-color:goldenrod;
                 border-color: sandybrown;
+            }
+            h3{
+                color: green
+            }
+            li{
+                color: red;
             }
         </style>
     </head>
@@ -90,7 +98,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
             <div id="messageArea" class="row ">
                 <div class = "col-md-4">
                     <div class="well">
-                        <h3>Online Users</h3>
+                        <h3 class="greenyellow">Online Users</h3>
                         <ul class="list-group" id="users"></ul>
                     </div>
                 </div>
