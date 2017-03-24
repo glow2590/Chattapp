@@ -45,6 +45,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
             }
 
             .chat{
+                height: 500px;
                 overflow:scroll;
             }
             label{
@@ -127,7 +128,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                 
                 
                 socket.on('new message',function(data){
-                    $chat.append('<div class="well chat"><strong>'+data.user+':</strong>'+data.msg+'</div>')
+                    $chat.append('<div class="well "><strong>'+data.user+':</strong>'+data.msg+'</div>')
                 });
                 
                 $userForm.submit(function(e){
