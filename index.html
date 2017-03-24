@@ -54,6 +54,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                 overflow: scroll;
                 display: grid;
                 
+                
             }
             /*chat background and color*/
             .zebra{
@@ -149,6 +150,10 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                 });
                 
                 $userForm.submit(function(e){
+                    window.setInterval(function() {
+  var elem = document.getElementById('data');
+  elem.scrollTop = elem.scrollHeight;
+}, 5000);
                     e.preventDefault();
                     socket.emit('new user',$userName.val(),function(data){
                         if (data){
@@ -157,6 +162,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                         }
                     });
                     $userName.val('');
+                    
                 });
                 
                 socket.on('get users',function(data){
