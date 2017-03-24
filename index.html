@@ -5,6 +5,10 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script src="/socket.io/socket.io.js"></script>
+        
+<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+<i class="em em-some-emoji"></i>
         <!--Start of Zendesk Chat Script-->
 <script type="text/javascript">
 window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
@@ -107,6 +111,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                     <div class="chat" id="chat"></div>
                     <form id="messageForm">
                         <div class="form-group">
+                            <i class="em em-some-emoji"></i>
                             <label>Enter a message</label>
                             <textarea class="form-control greenyellow" id="message" placeholder="please enter your message here"></textarea>
                             <br />
@@ -153,7 +158,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                     window.setInterval(function() {
   var elem = document.getElementById('chat');
   elem.scrollTop = elem.scrollHeight;
-}, 5000);
+}, 2500);
                     e.preventDefault();
                     socket.emit('new user',$userName.val(),function(data){
                         if (data){
