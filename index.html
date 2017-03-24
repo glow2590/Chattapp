@@ -50,6 +50,9 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                 text-overflow: clip;
                 
             }
+            .zebra:(odd){
+                background-color: #ccc;
+            }
             label{
                 color: greenyellow;
             }
@@ -130,7 +133,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                 
                 
                 socket.on('new message',function(data){
-                    $chat.append('<div class="well "><strong>'+data.user+':</strong>'+data.msg+'</div>')
+                    $chat.append('<div class="well zebra"><strong>'+data.user+':</strong>'+data.msg+'</div>')
                 });
                 
                 $userForm.submit(function(e){
