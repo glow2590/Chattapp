@@ -6,9 +6,6 @@
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script src="/socket.io/socket.io.js"></script>
         
-<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
-
-<i class="em em-some-emoji"></i>
         <!--Start of Zendesk Chat Script-->
 <script type="text/javascript">
 window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
@@ -111,7 +108,6 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                     <div class="chat" id="chat"></div>
                     <form id="messageForm">
                         <div class="form-group">
-                            <i class="em em-some-emoji"></i>
                             <label>Enter a message</label>
                             <textarea class="form-control greenyellow" id="message" placeholder="please enter your message here"></textarea>
                             <br />
@@ -125,13 +121,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
         </div>    
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
         <script>
-            $(document).ready(function() {
-    $("#field").keyup(function(e) {
-        if(e.keyCode == 13) {
-            sendMessage();
-        }
-    });
-});     
+  
             $(function(){
                 var socket = io.connect();  
                 var $messageForm = $('#messageForm');
@@ -142,11 +132,14 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                 var $userForm = $('#userForm');
                 var $users = $('#users');
                 var $userName = $('#userName');
-                
-                $messageForm.submit(function(e){
+                            $(document).ready(function() {
+ 
+                $messageForm.keyup(function(e){
+                     if(e.keyCode == 13) {
                     e.preventDefault();
                     socket.emit('send message',$message.val());
                     $message.val('');
+                     }
                 });
                 
                 
@@ -160,6 +153,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
   elem.scrollTop = elem.scrollHeight;
 }, 2500);
                     e.preventDefault();
+                    socket.emit('new user',$userName.val(),function(data){
                     socket.emit('new user',$userName.val(),function(data){
                         if (data){
                             $userFormArea.hide();
