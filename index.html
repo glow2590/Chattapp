@@ -161,7 +161,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                         }
                 });
                         
-                console.log('hi');
+                
                 $messageForm.submit(function(e){
                     
                     e.preventDefault();
@@ -171,7 +171,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                 });
                 
                 if(owner == 'Diaa'){
-                
+                console.log('hi');
                     socket.on('new message',function(data){
                 
                              $chat.append('<div class="well mod "><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>')
