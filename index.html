@@ -167,13 +167,13 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                 
                 
                 socket.on('new message',function(data){
-                    if(owner === 'Diaa'){
-                             $chat.append('<div class="well mod "><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>')
-                    }
+                    if(owner === 'Diaa')
+                             $chat.append('<div class="well mod "><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>');
                     
-                    else{
-                    $chat.append('<div class="well zebra "><strong> <span class="username-font">'+data.user+'</span>:</strong>'+data.msg+'</div>')
-                    }
+                    
+                    else
+                    $chat.append('<div class="well zebra "><strong> <span class="username-font">'+data.user+'</span>:</strong>'+data.msg+'</div>');
+                    
                 });
                 
                 $userForm.submit(function(e){
