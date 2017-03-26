@@ -173,7 +173,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                 
                     socket.on('new message',function(data){
                 
-                             $chat.append('<div class="well mod "><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>');
+                             $chat.append('<div class="well mod "><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>')
                     
                     
                 });
@@ -181,7 +181,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                  else{   
                      socket.on('new message',function(data){
                     
-                             $chat.append('<div class="well zebra "><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>');
+                             $chat.append('<div class="well zebra "><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>')
                     
                     
                 });
