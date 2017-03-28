@@ -1,0 +1,19 @@
+{
+   "name": "dreamchatspace",
+  "version": "1.0.0",
+  "description": "CHatting app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+ "author": "Diaa el Akkad",
+  "license": "ISC",
+    "dependencies":{
+        "socket.io":"*",
+        "express":"*"
+    }
+  "scripts": {
+    "start": "node app.js"
+  }
+}
