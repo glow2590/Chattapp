@@ -2,7 +2,7 @@
     <head>
         <title> Chatting app
         </title>
-        <link rel="shortcut icon" href="fav%20icon.png" type="image/x-icon">
+        <link rel="shortcut icon" href="fav icon.png" type="image/x-icon">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <script src="http://code.jquery.com/jquery-latest.min.js"></script>
         <script src="/socket.io/socket.io.js"></script>
@@ -24,8 +24,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                 background-color:lightgrey;
             }
             #messageArea{
-                
-               display: none;
+                display: none;
             }
             h1{
             
@@ -152,7 +151,8 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                 var $userForm = $('#userForm');
                 var $users = $('#users');
                 var $userName = $('#userName');
-                var owner =$('#userName').val();
+                var ownerst = toString($users);
+                var owner = ownerst;
                 $messageForm.keyup(function(e){
                     if(e.keyCode == 13){
                     e.preventDefault();
@@ -161,8 +161,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                         }
                 });
                         
-                
-                $messageForm.submit(function(e){
+                    $messageForm.submit(function(e){
                     
                     e.preventDefault();
                     socket.emit('send message',$message.val());
@@ -170,24 +169,26 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                         
                 });
                 
-                if(owner == 'Diaa'){
-                console.log('hi');
+
+                switch(){
+                  case (owner == 'Diaa')
+                
                     socket.on('new message',function(data){
                 
-                             $chat.append('<div class="well mod "><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>')
-                    
+                             $chat.append('<div class="well mod"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>')
+                    console.log('hi')
                     
                 });
                     }
                  else{   
                      socket.on('new message',function(data){
                     
-                             $chat.append('<div class="well zebra "><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>')
+                             $chat.append('<div class="well zebra"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>')
                     
                     
                 });
                     }
-                $userForm.submit(function(e){
+                    $userForm.submit(function(e){
                     window.setInterval(function() {
   var elem = document.getElementById('chat');
   elem.scrollTop = elem.scrollHeight;
