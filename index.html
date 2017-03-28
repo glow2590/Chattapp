@@ -171,8 +171,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                 });
                 
 
-                switch(users){
-                  case (owner == 'Diaa')
+         
                 
                     socket.on('new message',function(data){
                 
@@ -180,15 +179,14 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                     console.log('hi')
                     
                 });
-                    }
-                 else{   
+                       
                      socket.on('new message',function(data){
                     
                              $chat.append('<div class="well zebra"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>')
                     
                     
                 });
-                    }
+                    
                     $userForm.submit(function(e){
                     window.setInterval(function() {
   var elem = document.getElementById('chat');
