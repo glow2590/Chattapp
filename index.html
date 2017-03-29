@@ -152,7 +152,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                 var $userForm = $('#userForm');
                 var $users = $('#users');
                 var $userName = $('#userName');
-                var $owner = data.user;
+                
                     $messageForm.keyup(function(e){
                     if(e.keyCode == 13){
                     e.preventDefault();
@@ -170,24 +170,25 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                 console.log($users);
                 
 
-         if(owner== 'Diaa'){
+       
                 
                     socket.on('new message',function(data){
+                        var owner = data.user;
+                          if(owner== 'Diaa'){
                 
                              $chat.append('<div class="well mod"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>')
                     console.log('hi')
                     
-                });
-                   
-              }
+                                 
+              
                 else{
-                     socket.on('new message',function(data){
+                     
                     
                              $chat.append('<div class="well zebra"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>')
-                    
+                }
                 });
                     
-                    }
+                    
                     $userForm.submit(function(e){
                     window.setInterval(function() {
   var elem = document.getElementById('chat');
