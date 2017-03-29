@@ -174,18 +174,24 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
        
                 
                     socket.on('new message',function(data){
-                        var owner = data.user;
-                        switch(data.user)
+                        var owner = '(Owner) Diaa',admin='Mostafa(Admin)',password=prompt('please enter your password');
+                        
+                        if (data.user == owner || data.user== admin;)
                             {
+                            
+                            if(password == '******'){
+                                switch(data.user){
                                 case '(Owner) Diaa':
                              $chat.append('<div class="well mod"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>');
                                 break;
-                                case 'Mostafa(Admin)':  
+                                case 'Mostafa(Admin)':
                              $chat.append('<div class="well mod"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>');
                                 break;
                                 default:$chat.append('<div class="well mod"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>');
                                     break;
                 }
+                                }
+                                
                             });
                     
                     
