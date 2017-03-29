@@ -187,11 +187,18 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                                 case 'Mostafa(Admin)':
                              $chat.append('<div class="well mod"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>');
                                 break;
-                                default:$chat.append('<div class="well mod"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>');
+                                default:$chat.append('<div class="well zebra"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>');
                                     break;
-                }
-                                }
+                                            }
                                 
+                                }
+                            else
+                                  $chat.append('<div class="well zebra"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>');
+                                
+                                
+                            }
+                          else
+                                  $chat.append('<div class="well zebra"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>');
                             });
                     
                     
