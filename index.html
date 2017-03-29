@@ -174,18 +174,18 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                 
                     socket.on('new message',function(data){
                         var owner = data.user;
-                          if(owner== 'Diaa'){
+                          if(owner== 'Diaa')
                 
-                             $chat.append('<div class="well mod"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>')
-                    console.log('hi')
+                             $chat.append('<div class="well mod"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>');
+        
                     
                                  
               
-                else{
+                else 
                      
                     
-                             $chat.append('<div class="well zebra"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>')
-                }
+                             $chat.append('<div class="well zebra"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>');
+                
                 });
                     
                     
