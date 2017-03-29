@@ -137,8 +137,8 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
         </div>
         </div>    
         
-        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
-       -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+       
         
         <script>
   
@@ -152,26 +152,26 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                 var $userForm = $('#userForm');
                 var $users = $('#users');
                 var $userName = $('#userName');
-                var ownerst = toString($users);
+                var ownerst = toString($userName);
                 var owner = ownerst;
-                $messageForm.keyup(function(e){
+                    $messageForm.keyup(function(e){
                     if(e.keyCode == 13){
                     e.preventDefault();
                     socket.emit('send message',$message.val());
                     $message.val('');
                         }
-                });
+                    });
                         
                     $messageForm.submit(function(e){
-                    
                     e.preventDefault();
                     socket.emit('send message',$message.val());
                     $message.val('');
                         
                 });
+                console.log(owner);
                 
 
-         
+         if(owner=='diaa'){
                 
                     socket.on('new message',function(data){
                 
@@ -179,14 +179,16 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                     console.log('hi')
                     
                 });
-                       
-                    /* socket.on('new message',function(data){
+                   
+              }
+                else{
+                     socket.on('new message',function(data){
                     
                              $chat.append('<div class="well zebra"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>')
                     
+                });
                     
-                });*/
-                    
+                    }
                     $userForm.submit(function(e){
                     window.setInterval(function() {
   var elem = document.getElementById('chat');
@@ -211,7 +213,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                     $users.html(html);
                 });
                 
-            });
+            
             
             function reconnect() {
     console.log('Connection lost, trying to reconnect...');
@@ -233,6 +235,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
         }
     });
 }
+            });
             
         </script>
         
