@@ -170,8 +170,8 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                 });
        
                 
-                    socket.on('new message',function(data){
                         var owner = '(Owner) Diaa',admin='Mostafa(Admin)',password= prompt('please enter your password');
+                    socket.on('new message',function(data){
                         
                         if (data.user == owner || data.user== admin)
                             {
