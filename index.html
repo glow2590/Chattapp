@@ -169,11 +169,9 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                         
                 });
        
-                var owner = '(Owner) Diaa',admin='Mostafa(Admin)',password= prompt('please enter your password');
-                    
-                        
-                        socket.on('new message',function(data){
-                        
+                
+                    socket.on('new message',function(data){
+                        var owner = '(Owner) Diaa',admin='Mostafa(Admin)',password= prompt('please enter your password');
                         
                         if (data.user == owner || data.user== admin)
                             {
@@ -186,7 +184,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                                 case 'Mostafa(Admin)':
                              $chat.append('<div class="well mod"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>');
                                 break;
-                                default: alert('sorry wrong password');
+                                default:$chat.append('<div class="well zebra"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>');
                                     break;
                                             }
                                 
@@ -199,9 +197,6 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                           else
                                   $chat.append('<div class="well zebra"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>');
                             });
-                    })
-                
-                    
                     
                     
                     $userForm.submit(function(e){
@@ -250,7 +245,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
         }
     });
 }
-            
+            });
             
   </script>
         
