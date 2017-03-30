@@ -217,8 +217,8 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                 
                 socket.on('get users',function(data){
                     var html = '';
-                    if(data.user=owner||data.user=admin){
-                        if(password=336933){
+                    if(data.user==owner||data.user==admin){
+                        if(password==336933){
                         for(i = 0 ;i < data.length;i++){
                         
                         html += '<li class=list-group-item">'+data[i]+'</li>';
