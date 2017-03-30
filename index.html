@@ -169,8 +169,8 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                         
                 });
        
-                
                         var owner = '(Owner) Diaa',admin='Mostafa(Admin)',password= prompt('please enter your password');
+                
                     socket.on('new message',function(data){
                         
                         if (data.user == owner || data.user== admin)
@@ -184,13 +184,13 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                                 case 'Mostafa(Admin)':
                              $chat.append('<div class="well mod"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>');
                                 break;
-                                default:Alert('sorry you aint an admin');
+                                default:$chat.append('<div class="well zebra"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>');
                                     break;
                                             }
                                 
                                 }
                             else
-                                  $chat.append('<div class="well zebra"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>');
+                                  alert('sorry you aint an admin or mod');
                                 
                                 
                             }
