@@ -28,6 +28,9 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
             #messageArea{
                 display: none;
             }
+            .red{
+                color: red;
+            }
             h1{
             
                 color: silver;
@@ -237,7 +240,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                     socket.on('get users',function(data){
                     var html = '';
                     for(i = 0 ;i < data.length;i++){
-                        html += '<li class=list-group-item">'+data[i]+'</li>';
+                        html += '<li class=list-group-item red">'+data[i]+'</li>';
                     }
                     $users.html(html);
                 });
