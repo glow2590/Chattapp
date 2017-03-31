@@ -234,35 +234,14 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                     $userName.val('');
                     
                 });
-                
-                socket.on('get users',function(data){
+                    socket.on('get users',function(data){
                     var html = '';
-                    if(data.user==owner||data.user==admin){
-                        if(password==336933){
-                        for(i = 0 ;i < data.length;i++){
-                        
-                        html += '<li class=list-group-item mod">'+data[i]+'</li>';
-                    }
-                            $users.html(html)
-                            }
-                        else{
-                             for(i = 0 ;i < data.length;i++){
-                        
-                        html += '<li class=list-group-item">CHEATER</li>';
-                    }
-                            $users.html(html);
-                        }
-                    
-                    }
-                    else {
                     for(i = 0 ;i < data.length;i++){
-                        
                         html += '<li class=list-group-item">'+data[i]+'</li>';
-                    
+                    }
                     $users.html(html);
-                    }
-                    }
                 });
+                            });
                 
             
             
