@@ -296,7 +296,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                              alert("Please write something in mes.");
                    
                         }
-                        else{ var textWithEmoticons = $ 
+                        else{ var textWithEmoticons = $.emoticons.replace(message)
                             e.preventDefault();
                     socket.emit('send message',$message.val());
                     $message.val('');
@@ -391,28 +391,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
             });
             
   </script>
-        <script>
-
-    $('#message').keyup(function(e)
-    {
-        if(e.keyCode == 13)
-        {
-            
-            if($message == "")
-            {
-               
-            }
-            else
-            {
-                var textWithEmoticons = $.emoticons.replace(message);
-                $("#chat").append("<div class='chat'>"+textWithEmoticons+"</div>");
-                    
-                $('#message').val("");
-            }
-        }
-    });
-});
-</script>
+        
         <!-- emotinons-->
         <script type="text/javascript" >
         (function($, exports, window, name) {
