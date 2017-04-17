@@ -28,6 +28,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
 
 </script>
         <!--emotions.js-->
+        
         <script>
         window.onload = function() {
 
@@ -41,18 +42,130 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
 
 }
         </script>
-        
-        <style>
-        img.emoji {  
-  /*Override any img styles to ensure Emojis are displayed inline*/
-  margin: 0px !important;
-  display: inline !important;
-}
 
-        <style>
 <!--End of Zendesk Chat Script-->
+        <script>
+            </pre>
+<pre>(function($, exports, window, name) {
+ 
+if (!exports) {
+    exports = {};
+ 
+    if ($) {
+        $[name] = exports;
+    } else {
+        window[name] = exports;
+    }
+}
+ 
+var emoticons,
+    codesMap = {},
+    primaryCodesMap = {},
+    regexp,
+    metachars = /[[\]{}()*+?.\\|^$\-,&#\s]/g,
+    entityMap;
+ 
+entityMap = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+    '/': '&#x2F;'
+};
+ 
+function escape(string) {
+    return String(string).replace(/[&<>"'\/]/g, function(s) {
+        return entityMap[s];
+    });
+}
+ 
+/**
+ * Define emoticons set.
+ *
+ * @param {Object} data
+ */
+exports.define = function(data) {
+    var name, i, codes, code,
+        patterns = [];
+ 
+    for (name in data) {
+        codes = data[name].codes;
+        for (i in codes) {
+            code = codes[i];
+            codesMap = name;
+ 
+            // Create escaped variants, because mostly you want to parse escaped
+            // user text.
+            codesMap[escape(code)] = name;
+            if (i == 0) {
+                primaryCodesMap = name;
+            }
+        }
+    }
+ 
+    for (code in codesMap) {
+        patterns.push('(' + code.replace(metachars, "\\$&") + ')');
+    }
+ 
+    regexp = new RegExp(patterns.join('|'), 'g');
+    emoticons = data;
+};
+ 
+/**
+ * Replace emoticons in text.
+ *
+ * @param {String} text
+ * @param {Function} [fn] optional template builder function.
+ */
+exports.replace = function(text, fn) {
+    return text.replace(regexp, function(code) {
+        var name = codesMap;
+        return (fn || exports.tpl)(name, code, emoticons[name].title);
+    });
+};
+ 
+/**
+ * Get primary emoticons as html string in order to display them later as overview.
+ *
+ * @param {Function} [fn] optional template builder function.
+ * @return {String}
+ */
+exports.toString = function(fn) {
+    var code,
+        str = '',
+        name;
+ 
+    for (code in primaryCodesMap) {
+        name = primaryCodesMap;
+        str += (fn || exports.tpl)(name, code, emoticons[name].title);
+    }
+ 
+    return str;
+};
+ 
+/**
+ * Build html string for emoticons.
+ *
+ * @param {String} name
+ * @param {String} code
+ * @param {String} title
+ * @return {String}
+ */
+exports.tpl = function(name, code, title) {
+    return '<span class="emoticon emoticon-' + name + '" title="' + title + '">' +
+        code + '</span>';
+};
+ 
+}(typeof jQuery != 'undefined' ? jQuery : null,
+  typeof exports != 'undefined' ? exports : null,
+  window,
+  'emoticons'));</pre>
+<pre>
+        </script>
         <style>
-        .emoticon {
+   
+}.emoticon {
     display: inline-block;
     width: 20px;
     height: 20px;
@@ -161,8 +274,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
 .emoticon-myspace { background-position: -29px -811px; }
 .emoticon-malthe { background-position: -29px -840px; }
 .emoticon-tauri { background-position: -29px -869px; }
-.emoticon-priidu { background-position: -29px -898px; }
-        </style>
+.emoticon-priidu { background-position: -29px -898px; }</style>
         <style>
             body{
                 margin-top: 50px;
@@ -275,6 +387,9 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                 <div class ="col-md-8">
                     <div class="chat " id="chat"></div>
                     <form id="messageForm">
+                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-wp-preserve="%3Cscript%20src%3D%22path_to_emoticons_file%2Femoticons.js%22%20type%3D%22text%2Fjavascript%22%3E%3C%2Fscript%3E" data-mce-resize="false" data-mce-placeholder="1" class="mce-object" width="20" height="20" alt="&lt;script&gt;" title="&lt;script&gt;" />
+
+
                         <div class="form-group">
                             <label>Enter a message</label>
                             <textarea class="form-control greenyellow" id="message" placeholder="please enter your message here"></textarea>
