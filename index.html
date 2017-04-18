@@ -1,7 +1,10 @@
-<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US"> 
-<head profile="http://gmpg.org/xfn/11"> 
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link href="stylesheets/jquery.cssemoticons.css" media="screen" rel="stylesheet" type="text/css" />
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        
+        <link href="stylesheets/jquery.cssemoticons.css" media="screen" rel="stylesheet" type="text/css" />
 	<script src="javascripts/jquery-1.4.2.min.js" type="text/javascript"></script>
 	<script src="javascripts/jquery.cssemoticons.min.js" type="text/javascript"></script>
 	
@@ -30,42 +33,312 @@
 	</script>
 	
 	<style type="text/css">
-		#small { font-size: 8px; }
-		#large { font-size: 72px; }
-		#regular { font-size: 20px; }
+		.small { font-size: 8px; }
+		.large { font-size: 72px; }
+		.regular { font-size: 20px; }
 		.wrapped { width: 350px; }
 	</style>
-</head>
-<body>
-	<h1 class="text" id="large">
-		It's a pirate ?-) ARGHHH!!!! :)
-	</h1>
-	<p>^^ <i>I made this one up, but it's my plugin so it's supported</i> ^^</p>
-	<p><a href="#" id="toggle-headline">Click here</a> to toggle the "emoticonization" of the headline above.</p>
-	<p class="text" id="small">
-		Yo, this is some tiny text. :-)<br />
-		This is how emoticons stack up in a paragraph B)
-	</p>
-	<p class="text wrapped" id="regular">:O
-	  Here is an example of what emoticons look like in a paragraph :-) You can tell here that the emoticons don't break the line-height in paragraphs like most of the image-replacement methods.
-	  Also, here is a printed URL: http://www.alfajango.com. Notice the <code>:/</code> doesn't get styled. And one in a nested element
-	  <span>:-)</span>
-	</p>
-	<p class="text no-emoticons">
-	  This entire paragraph is excluded from being emoticonized ;-)
-	</p>
-	<p class="text">
-	  This paragraph has specific elements excluded. So this works B) <span class="no-emoticons">But this doesn't :(</span>
-	</p>
-	<hr />
-	<p class="text" id="">
-		Here are all of the emoticons currently supported (though it's easy to add your own):
-:-)
-		:-) :) :o) :c) :^) :-D :-( :-9 ;-) :-P :-p :-Þ :-b :-O :-/ :-X :-# :'( B-) 8-) :-\ ;*( :-*
-    :] :&gt; =] =) 8) :} :D 8D XD xD =D :( :&lt; :[ :{ =( ;) ;] ;D :P :p =P =p :b :Þ :O 8O :/ =/ :S :# :X B) O:)
-	</p>
-	<p class="text" id="regular">
-		And some special emoticons: &lt;3 ;( &gt;:) &gt;;) &gt;:( O_o O_O o_o 0_o T_T ^_^ ?-) [+=..]
-	</p>
-	<hr />
-</body> 
+        <title> Chatting app
+        </title>
+        <link rel="shortcut icon" href="fav icon.png" type="image/x-icon">
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        
+<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+        <i class="em em-some-emoji"></i>
+        <!--Start of Zendesk Chat Script-->
+<script type="text/javascript">
+window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
+$.src="https://v2.zopim.com/?4gLwOK09nYiW8NH98qZ5QlX2blfix1HU";z.t=+new Date;$.
+type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
+</script>
+        
+        <script src="//twemoji.maxcdn.com/twemoji.min.js"></script>  
+        <!--emotions libr-->
+        <script>twemoji.parse('􏿿');
+
+// Returns
+
+</script>
+        <!--emotions.js-->
+        
+        <script>
+        window.onload = function() {
+
+  // Set the size of the rendered Emojis
+  // This can be set to 16x16, 36x36, or 72x72
+  twemoji.size = '16x16';
+
+  // Parse the document body and
+  // insert <img> tags in place of Unicode Emojis
+  twemoji.parse(document.body);
+
+}
+        </script>
+
+<!--End of Zendesk Chat Script-->
+                <style>
+            body{
+                margin-top: 50px;
+                background-color:lightgrey;
+            }
+            #messageArea{
+                display: none;
+            }
+            .red{
+                color: red;
+            }
+            h1{
+            
+                color: silver;
+                text-shadow:white 2px 2px 0px 3px;
+                background-color: whitesmoke;
+                border:solid 1px ;
+                border-color: ghostwhite;
+                text-align: center;
+                margin: 100px;
+                border-radius: 5px;
+                font-style: italic;
+                font-style: oblique;
+                font-family: cursive;
+            }
+           
+
+            .chat{
+                height: 250px;
+                overflow-y: scroll;
+                
+                
+            }
+            /*chat background and color*/
+            .zebra{
+                background-color: white;
+                color: brown;
+                
+            }
+            .embedg{
+                margin: 0 100px;
+            }
+            .mod{
+                color: gold;
+                background-color: cornsilk;
+            }
+            .username-font{
+                font-size: 20px;
+            }
+            label{
+                color: dodgerblue;
+            }
+            .greenyellow{
+                background-color:white;
+                border-color:ghostwhite;
+            }
+            h3{
+                color: green
+            }
+            
+            li{
+                color: red;
+            }
+            
+            
+            ::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+        </style>
+    </head>
+    <body>
+        <h1 class="text">
+            Welcome to Bruh Chat :D :)
+        </h1>
+        
+        <div class="container ">
+            <div id="userFormArea" class="row">
+                <div class="col-md-12">
+                    <form id="userForm">
+                        <div class="form-group">
+                            <label>Enter Username:</label>
+                            <input class="form-control greenyellow" id="userName" placeholder="please enter your username"/>
+                            <br />
+                            <input type="submit" class="btn btn-primary" value="Login"/>
+                            
+                        </div>
+                    </form>
+                
+                </div>
+            </div>
+            
+            <div class="chatter">
+            <div id="messageArea" class="row ">
+                <div class = "col-md-4">
+                    <div class="well greenyellow">
+                        <h3 >Online Users</h3>
+                        <ul class="list-group" id="users"></ul>
+                    </div>
+                </div>
+                <div class ="col-md-8">
+                    <div class="chat " id="chat"></div>
+                    <form id="messageForm">
+                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-wp-preserve="%3Cscript%20src%3D%22path_to_emoticons_file%2Femoticons.js%22%20type%3D%22text%2Fjavascript%22%3E%3C%2Fscript%3E" data-mce-resize="false" data-mce-placeholder="1" class="mce-object" width="20" height="20" alt="&lt;script&gt;" title="&lt;script&gt;" />
+
+
+                        <div class="form-group">
+                            <label>Enter a message</label>
+                            <textarea class="form-control greenyellow" id="message" placeholder="please enter your message here"></textarea>
+                            <br />
+                            <input type="submit" class="btn btn-primary " value="send message"/>
+                            <br>
+                            <br>
+<iframe src="http://www.appsgeyser.com/social_widget/social_widget.php?width=300&height=160&apkName=Bruh Chat_4738126&simpleVersion=no" width="310" height="180" vspace="0" hspace="0" frameborder="no" scrolling="no" seamless="" allowtransparency="true"></iframe>                            
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+            </div>    <!-- Place this code where you'd like the game to appear -->
+        <!--
+<div class="miniclip-game-embed" data-game-name="tanxio" data-theme="0" data-width="1200" data-height="800" data-language="en"><a href="http://www.miniclip.com/games/tanxio/">Play Tanx.io</a></div>
+<p style="text-align:center;"><a href="http://www.miniclip.com/games/tanxio/" target="_blank">Play Tanx.io</a> / More <a href="http://www.miniclip.com/games/genre-1320/" target="_blank">IO Games games</a></p>
+-->
+<!-- Insert this code before your </body> tag -->
+<script src="//static.miniclipcdn.com/js/game-embed.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+        
+       <!-- Place this code where you'd like the game to appear -->
+<!--<div class="miniclip-game-embed" data-game-name="total-wreckage" data-theme="0" data-width="680" data-height="510" data-language="en"><a href="http://www.miniclip.com/games/total-wreckage/">Play Total Wreckage</a></div>
+<p style="text-align:center;"><a href="http://www.miniclip.com/games/total-wreckage/" target="_blank">Play Total Wreckage</a> / More <a href="http://www.miniclip.com/games/genre-1143/" target="_blank">Destruction games</a></p>
+-->
+<!-- Insert this code before your </body> tag -->
+<script src="//static.miniclipcdn.com/js/game-embed.js"></script>
+        
+        <script>
+    
+            $(function(){
+                var socket = io.connect();  
+                var $messageForm = $('#messageForm');
+                var $message = $('#message');
+                var $chat = $('#chat');
+                var $messageArea = $('#messageArea');
+                var $userFormArea = $('#userFormArea');
+                var $userForm = $('#userForm');
+                var $users = $('#users');
+                var $userName = $('#userName');
+                
+                    $messageForm.keyup(function(e){
+                    if(e.keyCode == 13){
+                        if($message == ""){
+                             alert("Please write something in mes.");
+                   
+                        }
+                        else{ 
+                    e.preventDefault();
+                    socket.emit('send message',$message.val());
+                    $message.val('');
+                          }
+                        }
+                    });
+                        
+                    $messageForm.submit(function(e){
+                    e.preventDefault();
+                    socket.emit('send message',$message.val());
+                    $message.val('');
+                        
+                });
+       
+                        var owner = '(Owner) Diaa',admin='Mostafa(Admin)',password= prompt('please enter your password if you are a mod or admin if you aint press okay Thanks ;)');
+                
+                    socket.on('new message',function(data){
+                        
+                        if (data.user == owner || data.user== admin)
+                            {
+                            
+                            if(password == 336933){
+                                switch(data.user){
+                                case '(Owner) Diaa':
+                             $chat.append('<div class="well mod"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>');
+                                break;
+                                case 'Mostafa(Admin)':
+                             $chat.append('<div class="well mod"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>');
+                                break;
+                                default:$chat.append('<div class="well mod"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>');
+                                    break;
+                                            }
+                                
+                                }
+                            else
+                                    $chat.append('<div class="well zebra"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>');
+                                    
+                                
+                                
+                            }
+                          else
+                                  $chat.append('<div class="well zebra"><strong> <span class="username-font ">'+data.user+'</span>:</strong>'+data.msg+'</div>');
+                            });
+                    
+                    
+                    $userForm.submit(function(e){
+                    window.setInterval(function() {
+  var elem = document.getElementById('chat');
+  elem.scrollTop = elem.scrollHeight;
+}, 2500);
+                    e.preventDefault();
+                    socket.emit('new user',$userName.val(),function(data){
+                        if (data){
+                            $userFormArea.hide();
+                            $messageArea.show();
+                        }
+                    });
+                    $userName.val('');
+                    
+                });
+                    socket.on('get users',function(data){
+                    var html = '';
+                    for(i = 0 ;i < data.length;i++){
+                        html += '<li class=list-group-item red">'+data[i]+'</li>';
+                    }
+                    $users.html(html);
+                });
+                            
+                
+            
+            
+            function reconnect() {
+    console.log('Connection lost, trying to reconnect...');
+    $.ajax({
+        url:dreamchatspace.azurewebsites.net,
+        success: function() {
+            //Server is back online
+            socket = new WebSocket(myUrl);
+            socket.onerror = onErrorHandler;
+            socket.onmessage = onMessageHandler;
+            socket.onopen = onOpenHandler;
+            socket.onclose = onCloseHandler;
+        },
+        error: function() {
+            //Server is still down
+            setTimeout(function() {
+                reconnect();
+            }, 1000);
+        }
+    });
+}
+            });
+            
+  </script>
+        
+        
+    </body>
+</html>
